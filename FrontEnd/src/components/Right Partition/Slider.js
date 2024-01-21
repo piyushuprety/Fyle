@@ -53,7 +53,7 @@ export const Slider = ({ setPage, setPerPage, setIsLoading, perPage, count }) =>
           })}
       </div>
       <div className="directionalButton">
-        <button className="dir-btn color-blue" onClick={prevPage} href="">
+        <button className="dir-btn color-blue" onClick={prevPage} href="" disabled={page === 1}>
           Previous
         </button>
         <div className="perPage">
@@ -68,7 +68,7 @@ export const Slider = ({ setPage, setPerPage, setIsLoading, perPage, count }) =>
           />
           <div className="color-blue">Repos Per Page</div>
         </div>
-        <button className="dir-btn color-blue" onClick={nextPage}>
+        <button className="dir-btn color-blue" onClick={nextPage} disabled={page === pageNo.length}>
           Next
         </button>
       </div>
