@@ -9,7 +9,7 @@ app.use(cors());
 const PORT = 8000;
 
 const octokit = new Octokit({
-  auth: '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',
+  auth: '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',
 });
 const corsOpts = {
   origin: '*',
