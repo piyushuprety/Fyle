@@ -1,0 +1,295 @@
+body {
+  background-color: #0d1116;
+  margin: 0px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+}
+.color-grey{
+  color: #838c97;
+}
+.color-blue{
+   color: #2d82f7;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* LoadingPage.css */
+
+body.loading {
+  overflow: hidden;
+  touch-action: none;
+}
+
+.loading-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db; /* Blue color for the spinner */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* main module */
+
+.MainModule-container{
+  margin: 20px;
+  display: flex;
+  gap: 94px;
+}
+.UserDetailsContainer{
+  display: flex;
+  flex-direction: column;
+  gap :8px;
+  width: 300px;
+}
+.RightSection-container{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Nav bar */
+
+.navStyle{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 23px;
+}
+#navContainer{
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  background-color: color(srgb 0.1413 0.1614 0.1825);
+  height: 70px;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+
+.navLeftSide{
+  margin-left: 25px 
+}
+.navRightSide{
+  margin-right: 25px 
+}
+
+.signup{
+  border: 1px white solid;
+  padding: 6px;
+  border-radius: 9px;
+}
+
+.icon{
+  filter: invert();
+  size: 30px;
+  background-color: transparent;
+}
+.pages{
+  display: flex;
+  gap: 23px;
+}
+.pages-listing{
+  display: flex;
+  gap:5px;
+}
+.svg-dropdown{
+ filter: invert(1);
+}
+
+
+/* Left section */
+
+.profileImg{
+  height: 290px;
+  width:  290px;
+  border-radius: 50%;
+  border: 1px #838c97 solid;
+}
+
+.info{
+  display: grid;
+  align-items: center;
+}
+
+.name{
+  font-size: 24px;
+  font-family: sans-serif;
+  font-weight: 600;
+}
+.login-name{
+  font-size: 20px;
+  font-family: sans-serif;
+}
+
+.follow_btn{
+  width: 300px;
+  height: 35px;
+  color: #c9d1d9;
+  background-color: #21262d;
+  border: 1px white solid;
+  border-radius: 15px;
+}
+.url{
+  display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+.profileImgSection{
+  display: flex;
+    justify-content: flex-start;
+    gap: 38px;
+    flex-direction: column;
+}
+.bio{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.socialStats{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Right header */
+
+.discription{
+  display: flex;
+  gap:22px
+}
+.repo-icon{
+  display: flex;
+  align-items: center;
+  filter: invert();
+}
+.heading{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.count{
+  display: flex;
+  background-color: #21262d;
+  border-radius: 12px;
+  font-weight: 500;
+  padding: 3px;
+  width: 35px;
+  align-content: flex-end;
+  justify-content: center;
+}
+.underline{
+  border: 1px red solid;
+}
+
+/* Repo list */
+
+.repo-container{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Repo skeleton */
+
+.repo-skeleton{
+  border: 1px #838c97 solid;
+  padding: 20px;
+  margin: 12px;
+  font-size: small;
+}
+
+.topics{
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.topic{
+  border: 1px white solid;
+  padding: 8px;
+  border-radius: 15px;
+  background-color: #121c2f;
+}
+
+/* slider */
+
+.slider{
+  margin-top: 34px;
+}
+
+.directionalButton{
+  display: flex;
+  justify-content: space-between;
+}
+
+.dir-btn{
+  border: 1px white solid;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: #121c2f;
+  width :200px;
+}
+
+#page-no{
+  width: 75px;
+  height: 30px;
+  background-color: #121c2f;
+  text-align: center;
+  border: none;
+}
+
+.perPage{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.pageSlider{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.slider{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 35px;
+}
+
+.numbers{
+  width: 32px;
+  height: 25px;
+  background-color: #133e92;
+  color: white;
+  border: 1px white solid;
+  text-align: -webkit-center;
+}
