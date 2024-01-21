@@ -8,7 +8,7 @@ app.use(cors());
 const PORT = 8000;
 
 const octokit = new Octokit({
-  auth: rrocess.env.TOKEN,
+  auth: process.env.TOKEN,
 });
 
 const corsOpts = {
