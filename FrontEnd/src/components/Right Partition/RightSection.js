@@ -34,6 +34,7 @@ export const RightSection = ({ count, setIsLoading }) => {
         perPage={perPage}
         count = {count}
         setIsLoading={setIsLoading}
+        page={page}
       />
     </div>
   );
