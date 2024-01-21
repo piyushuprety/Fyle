@@ -8,7 +8,7 @@ app.use(cors());
 const PORT = 8000;
 
 const octokit = new Octokit({
-  auth: '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',
+  auth: rrocess.env.TOKEN,
 });
 
 const corsOpts = {
