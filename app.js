@@ -1,5 +1,5 @@
-// const { Octokit } = require('@octokit/rest');
-// const octokit = new Octokit();
+const { Octokit } = require('@octokit/rest');
+
 const  axios =  require("axios")
 const express = require('express');
 const cors = require('cors');
@@ -8,6 +8,9 @@ const app = express();
 app.use(cors());
 const PORT = 8000;
 
+const octokit = new Octokit({
+  auth: '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',
+});
 const corsOpts = {
   origin: '*',
   credentials: true,
@@ -17,35 +20,22 @@ const corsOpts = {
 };
 app.use(cors(corsOpts));
 
-async function fetchTotalRepo(username) {
-  try {
-    const response = await axios.get(
-     ' https://api.github.com/users/freeCodeCamp'
-    );
-    const totalRepos = response.data.public_repos;
 
-    return totalRepos;
-  } catch (error) {
-    console.error('Error fetching total repositories:', error);
-    throw error;
-  }
-}
-
-async function fetchAllRepositories(limit ,page) {
+async function fetchAllRepositories(username, limit ,page) {
   const data = {
     repositories: [],
   };
 
   try {
-    // const { data: repositories } = await octokit.repos.listForUser({
-    //   username,
-    //   per_page:limit,
-    //   page:page ,
-    // });
+    const { data: repositories } = await octokit.repos.listForUser({
+      username,
+      per_page:limit,
+      page:page ,
+    });
 
-    const { data: repositories } = await axios.get(
-      `https://api.github.com/users/freeCodeCamp/repos?per_page=${limit}&page=${page}`
-    );
+    // const { data: repositories } = await axios.get(
+    //   `https://api.github.com/users/freeCodeCamp/repos?per_page=${limit}&page=${page}`
+    // );
 
     data.repositories = repositories.map((repo,id) => ({
       name: repo.name || '',
@@ -71,10 +61,8 @@ app.listen(PORT, () => {
   let limit = req.query.limit;
   console.log(page,limit)
   try {
-    const number = await fetchTotalRepo();
-
-    const repoNames = await fetchAllRepositories(limit, page);
-
+    const username = "freeCodeCamp";
+    const repoNames = await fetchAllRepositories(username, limit, page);
     const data = repoNames;
     console.log(200);
     res.json(data);
