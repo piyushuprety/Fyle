@@ -1,6 +1,6 @@
 import { useState ,useEffect } from "react";
 
-export const Slider = ({ setPage, setPerPage, setIsLoading, perPage, count }) => {
+export const Slider = ({ setPage, setPerPage, setIsLoading, perPage, count , page }) => {
   const pageNo = []
  
    for (let i = 0; i < Math.ceil(count / perPage); i++) {
