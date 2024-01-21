@@ -1,6 +1,5 @@
 const { Octokit } = require('@octokit/rest');
-
-const  axios =  require("axios")
+const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 
@@ -8,7 +7,10 @@ const app = express();
 app.use(cors());
 const PORT = 8000;
 
-const octokit = new Octokit();
+const octokit = new Octokit({
+  auth: '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',
+});
+
 const corsOpts = {
   origin: '*',
   credentials: true,
@@ -18,8 +20,7 @@ const corsOpts = {
 };
 app.use(cors(corsOpts));
 
-
-async function fetchAllRepositories(username, limit ,page) {
+async function fetchAllRepositories(username, limit, page) {
   const data = {
     repositories: [],
   };
@@ -27,20 +28,20 @@ async function fetchAllRepositories(username, limit ,page) {
   try {
     const { data: repositories } = await octokit.repos.listForUser({
       username,
-      per_page:limit,
-      page:page ,
+      per_page: limit,
+      page: page,
     });
 
     // const { data: repositories } = await axios.get(
     //   `https://api.github.com/users/freeCodeCamp/repos?per_page=${limit}&page=${page}`
     // );
 
-    data.repositories = repositories.map((repo,id) => ({
+    data.repositories = repositories.map((repo, id) => ({
       name: repo.name || '',
       description: repo.description || '',
       topics: repo.topics || [],
-      seq:id
-    })); 
+      seq: id,
+    }));
 
     return data;
   } catch (error) {
@@ -49,17 +50,16 @@ async function fetchAllRepositories(username, limit ,page) {
   }
 }
 
-
 app.listen(PORT, () => {
   console.log(`listening on PORT: ${PORT}`);
 });
 
- app.get('/data', async (req, res) => {
+app.get('/data', async (req, res) => {
   let page = req.query.page;
   let limit = req.query.limit;
-  console.log(page,limit)
+  console.log(page, limit);
   try {
-    const username = "freeCodeCamp";
+    const username = 'freeCodeCamp';
     const repoNames = await fetchAllRepositories(username, limit, page);
     const data = repoNames;
     console.log(200);
@@ -71,6 +71,3 @@ app.listen(PORT, () => {
       .json({ success: false, error: 'Failed to fetch repositories' });
   }
 });
-
-
-
