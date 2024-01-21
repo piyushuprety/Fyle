@@ -8,9 +8,7 @@ const app = express();
 app.use(cors());
 const PORT = 8000;
 
-const octokit = new Octokit({
-  auth: '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',
-});
+const octokit = new Octokit();
 const corsOpts = {
   origin: '*',
   credentials: true,
